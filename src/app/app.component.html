@@ -1,0 +1,36 @@
+<div class="container" style="padding: 2em;">
+  <div class="row">
+    <div class="col">
+      <ul class="list-group">
+        <li class="list-group-item"
+          *ngFor="let program of programsList | orderBy: '-date'"
+          (click)="showChart(program.date)"
+          style="cursor: pointer;">
+          {{program.date | date: 'dd/MM/yyyy'}}
+        </li>
+      </ul>
+    </div>
+
+    <div class="col" *ngIf="chartData != null && chartData.length > 0">
+      <canvas baseChart
+        style="cursor: pointer;"
+        [data]="chartData"
+        [labels]="chartLabels"
+        [legend]="chartLegend"
+        [chartType]="'polarArea'"
+        (chartClick)="showDetailProgramTabs($event)">
+      </canvas>
+    </div>
+  </div>
+
+  <div *ngIf="detailedProgramTabs != null && detailedProgramTabs.length > 0" style="margin-top: 2em;">
+    <ul class="list-group">
+      <li class="list-group-item"
+        *ngFor="let program of detailedProgramTabs | orderBy: '-time'">
+        {{program.name}} - {{program.time.toFixed(2)}}m
+      </li>
+    </ul>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
