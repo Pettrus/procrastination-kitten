@@ -24,7 +24,7 @@
     "@angular/router": "~8.2.14",
     "@types/electron": "^1.6.10",
     "active-win": "^6.0.0",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "electron-store": "^5.1.0",
     "ng2-charts": "^2.2.4",
     "ngx-pipes": "^2.6.0",
